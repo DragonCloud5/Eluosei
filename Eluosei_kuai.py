@@ -445,9 +445,6 @@ leaders = sorted(leaders.items(), key=operator.itemgetter(1), reverse=True)
 # 0 表示无方块，其他数字代表不同颜色和类型的方块
 matrix = [[0 for y in range(height + 1)] for x in range(width)]
 
-
-
-
 # 主循环：游戏核心控制逻辑
 while not done:
     # 暂停界面
@@ -586,7 +583,7 @@ while not done:
                     draw_board(next_mino, hold_mino, score, level, goal)
 
                 # 按下 Shift 或 C 键：Hold 功能
-                elif event.key == K_LSHIFT or event.key == K_c:
+                elif event.key == K_RSHIFT or event.key == K_c:
                     if hold == False:
                         ui_variables.move_sound.play()
                         if hold_mino == -1:  # 第一次 Hold
@@ -847,11 +844,11 @@ while not done:
         )
 
         # 渲染标题文字
-        title = ui_variables.h1.render("eluosi", 1, ui_variables.grey_1)
+        title = ui_variables.h1.render("Eluosi", 1, ui_variables.grey_1)
         # 渲染“按空格开始”提示文字
         title_start = ui_variables.h5.render("Press space to start", 1, ui_variables.white)
         # 渲染开发者信息
-        title_info = ui_variables.h6.render("LRZ_WZH_ZTX", 1, ui_variables.white)
+        title_info = ui_variables.h6.render("Modified By LRZ_WZH_ZTX", 1, ui_variables.white)
 
         # 获取排行榜前三名并渲染文本
         leader_1 = ui_variables.h5_i.render('1st ' + leaders[0][0] + ' ' + str(leaders[0][1]), 1, ui_variables.grey_1)
